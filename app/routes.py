@@ -1,7 +1,16 @@
 from app import app
 
-@app.route('/')
-@app.route('/index')
+from flask import Flask, render_template      
 
-def index():
-    return "Hello"
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("home.html")
+    
+@app.route("/help")
+def help():
+    return "Help"
+    
+if __name__ == "__main__":
+    app.run(debug=True)
